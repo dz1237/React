@@ -14,7 +14,8 @@ export default class App extends Component {
                 这是app组件
                 <p style={{ background: "#ff0", color: "#0ff", fontSize: "20px" }}>我是p</p>
                 <p style={special}>我也是p</p>
-                <a>我是{nume}</a>
+                <a >我是{nume}</a>
+                <a >我是{nana}</a>
             </div>
         )
     }
