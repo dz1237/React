@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
+
 export default class Item extends Component {
     state = {
         inEdit: false,
@@ -6,39 +7,42 @@ export default class Item extends Component {
     }
     handleEdit = () => {
         let { todo } = this.props;
-        this.setState(
-            {
-                inEdit: true
-
-            }, () => {
-                this.refs.myInput.value = todo.value;
-                this.refs.myInput.focus();
-            }
-        )
+        this.setState({
+            inEdit: true
+        }, () => {
+            this.refs.myInput.value = todo.value;
+            this.refs.myInput.focus()
+        })
     }
+
     render() {
-        let { todo, delTodo, changeHasCompleted, editTodo } = this.props;
+        let { todo, delTodo,
+            changeHasCompleted,
+            editTodo } = this.props;
         let { inEdit, flag } = this.state;
-        let completed = todo.hasCompleted ? "completed" : ""
+        let completed = todo.hasCompleted ? "completed" : "";
         let editing = inEdit ? completed + " editing" : completed;
         return (
             <li className={editing}>
                 <div className="view">
                     <input type="checkbox"
                         checked={todo.hasCompleted}
-                        onChange={() => { changeHasCompleted(todo) }}
-                        className="toggle" />
+                        className="toggle"
+
+                        onChange={() => {
+                            changeHasCompleted(todo)
+                        }}
+                    />
+
                     <label onDoubleClick={this.handleEdit}>
                         {todo.value}
                     </label>
                     <button className="destroy"
-                        onClick={() => { delTodo(todo) }}>
 
-                    </button>
+                        onClick={() => { delTodo(todo) }}></button>
                 </div>
                 <input type="text"
                     ref="myInput"
-                    className="edit"
                     onBlur={ev => {
                         if (flag) {
                             todo.value = ev.target.value.trim();
@@ -47,17 +51,18 @@ export default class Item extends Component {
                                 inEdit: false
                             })
                         }
+
                     }}
                     onKeyUp={ev => {
                         if (ev.keyCode === 13) {
                             todo.value = ev.target.value.trim();
                             editTodo(todo);
                             this.setState({
-                                inEdit: false,
-
+                                inEdit: false
                             })
                         }
                         if (ev.keyCode === 27) {
+
                             editTodo(todo);
                             this.setState({
                                 inEdit: false,
@@ -65,13 +70,16 @@ export default class Item extends Component {
                             });
                             setTimeout(() => {
                                 this.setState({
-                                    flag: true
+                                    flag: false
                                 })
-                            }, 10)
+                            }, 1000);
                         }
                     }}
-                />
-            </li >
+
+                    className="edit" />
+            </li>
+
         )
     }
 }
+

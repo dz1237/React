@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import './css/index.css'
+import React, { Component } from 'react'
 import Item from './Item';
 import Footer from './Footer';
-
+import './css/index.css'
 export default class App extends Component {
     state = {
-        todoDatas: [],//新建todoDatas存储
+        todoDatas: [],
         todoNum: 0,
-        view: "all",
-        flag: false
+        view: "all"
+
     }
     //添加todo
     addTodo = (e) => {
@@ -18,22 +17,26 @@ export default class App extends Component {
         todo.id = new Date().getTime();
         todo.value = e.target.value.trim();
         todo.hasCompleted = false;
+        console.log("todo", todo);
         todoDatas.push(todo);
-        todoNum++
-        this.setState({ todoDatas, todoNum });
-        e.target.value = "";
+        todoNum++;
+        console.log("todoDatas", todoDatas);
+        this.setState({
+            todoDatas, todoNum
+        });
+        e.target.value = ""
     }
     //删除todo
     delTodo = (todo) => {
-        let { todoDatas, todoNum } = this.state;
+        let { todoDatas } = this.state;
         todoDatas = todoDatas.filter(value => {
             if (todo.id === value.id) {
-                if (todo.id === value.id) {
+                if (todo.hasCompleted) {
                     todoNum--;
                 }
-
                 return false;
-            } else {
+            }
+            else {
                 return true
             }
         })
@@ -52,26 +55,41 @@ export default class App extends Component {
                     todoNum++
                 }
             }
-            return value
+            return true
         })
-        this.setState({ todoDatas, todoNum })
+        this.setState({ todoDatas, todoNum });
     }
-    //双击进入编辑状态
+    //双击编辑todo
     editTodo = (todo) => {
         let { todoDatas } = this.state;
         todoDatas = todoDatas.filter(value => {
             if (todo.id === value.id) {
                 value.value = todo.value
-            }
-            return value
+            } return value
+
         })
-        this.setState({ todoDatas });
+        this.setState({ todoDatas })
     }
     //过滤
     filterTodo = (view) => {
-        this.setState({ view })
+        this.setState({
+            view
+        })
     }
     //清除所有已完成
+    // clearCompleted = () => {
+    //     console.log("asdas");
+    //     let { todoDatas } = this.state;
+    //     todoDatas = todoDatas.filter(value => {
+    //         if (value.hasCompleted) {
+    //             return false
+    //         }
+    //         return true
+    //     })
+    //     this.setState({
+    //         todoDatas
+    //     })
+    // }
     clearCompleted = () => {
         let { todoDatas } = this.state;
         todoDatas = todoDatas.filter(value => {
@@ -82,7 +100,6 @@ export default class App extends Component {
         })
         this.setState({ todoDatas })
     }
-    //全选全不选
     isAll = () => {
         let { todoDatas, flag, todoNum } = this.state;
         flag = !flag;
@@ -105,57 +122,57 @@ export default class App extends Component {
             flag, todoDatas, todoNum
         })
     }
-
     render() {
         let { todoDatas, todoNum, view } = this.state;
-        let { isAll, clearCompleted, addTodo,
-            delTodo, filterTodo, changeHasCompleted,
-            editTodo } = this;
-        let filterTodos = todoDatas.filter((todo) => {
+        let { addTodo, delTodo, isAll,
+            changeHasCompleted,
+            editTodo, filterTodo, clearCompleted } = this;
+        let filtersTodo = todoDatas.filter(todo => {
             switch (view) {
-                case "all":
-                    return true;
-                case "active":
-                    return !todo.hasCompleted;
-                case "completed":
-                    return todo.hasCompleted;
+                case "all": return true;
+                case "active": return !todo.hasCompleted;
+                case "completed": return todo.hasCompleted;
             }
-        })
-        let items = filterTodos.map(todo => {
-            return (
-                <Item
-                    todo={todo} key={todo.id}
+        }
+        )
 
-                    {...this}
+
+        let items = filtersTodo.map(todo => {
+            return (
+                <Item todo={todo} key={todo.id}
+                    delTodo={delTodo}
+                    changeHasCompleted={changeHasCompleted}
+                    editTodo={editTodo}
+
                 />
             )
         })
+
         return (
             <section className="todoapp">
                 <header className="header">
                     <h1>Todo</h1>
-                    <input
-                        placeholder="What needs to be done?"
-                        type="text" onKeyUp={addTodo}
-                        className="new-todo" />
+                    <input type="text"
+                        placeholder='What needs to be done?'
+                        className='new-todo' onKeyUp={addTodo} />
                 </header>
                 <section className="main">
-                    <input onChange={isAll} type="checkbox"
-                        id="toggle-all" className="toggle-all" />
+                    <input type="checkbox" onChange={isAll}
+                        id="toggle-all" className='toggle-all'
+                    />
                     <label htmlFor="toggle-all"></label>
                     <ul className="todo-list">
                         {items}
-
                     </ul>
                 </section>
-                <Footer
-                    // todoNum={todoNum}
-                    // view={view}
-                    // filterTodo={filterTodo}
-                    // clearCompleted={clearCompleted}
-                    {...this}
+                <Footer todoNum={todoNum}
+                    filterTodo={filterTodo}
+                    view={view}
+                    clearCompleted={clearCompleted}
+
                 />
             </section>
         )
     }
 }
+
