@@ -1,0 +1,30 @@
+{
+    "status": "10001",
+    "msg": "success",
+    "data": [
+        {
+            "id": "2001",
+            "name": "tom",
+            "age": 19,
+            "sex": "男"
+        },
+        {
+            "id": "2002",
+            "name": "jarray",
+            "age": 20,
+            "sex": "男"
+        },
+        {
+            "id": "2003",
+            "name": "susan",
+            "age": 18,
+            "sex": "男"
+        },
+        {
+            "id": "2004",
+            "name": "zhaosi",
+            "age": 22,
+            "sex": "男"
+        }
+    ]
+}

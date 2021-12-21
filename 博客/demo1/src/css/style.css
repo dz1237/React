@@ -1,0 +1,41 @@
+body,ul,h1,h2,h3,h4,h5,h6,p{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    font-size: 16px/1.5em 微软雅黑;
+    color: #999;
+}
+.nav ul{
+    display: flex;
+    list-style: none;
+}
+.nav li {
+    flex: 1;
+    text-align: center;
+    background-color: #09f;
+}
+.nav li a{
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+.nav li a:hover{
+    background-color: #090;
+}
+.banner img{
+    width: 100%;
+}
+.industry p,.industry h3,.Resources p,.Resources h3,.home p,.home p,.share p,.share h3{
+    padding:10px;
+}
+.footer{
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    background-color: #09f;
+    bottom: 0px;
+    left: 0px;
+}
