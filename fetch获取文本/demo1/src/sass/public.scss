@@ -1,0 +1,17 @@
+$value:200px;
+body{
+    font-size: 14px;
+    font-family: 宋体;
+    color: #ffffff;
+}
+div#app{
+    background: #09f;
+    color: #ffffff;
+    width: 400px;
+    height: 400px;
+}
+dvi#app div {
+    background-color: #009960;
+    width: $value;
+    height: $value;
+}
