@@ -1,4 +1,4 @@
-import { ADD, SUB } from '../constants/index'
+import { SUB, ADD } from '../constants/index';
 export const add = () => {
     return {
         type: ADD

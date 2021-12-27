@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
+import { sub, add } from './actions/index'
 import { connect } from 'react-redux'
-
-import { add, sub } from './actions/index'
 class App extends Component {
     render() {
         let { count, dispatch } = this.props
         return (
             <div>
                 <h1>App组件</h1>
+                <hr />
                 <p>{count}</p>
                 <button onClick={() => { dispatch(add()) }}>+</button>
                 <button onClick={() => { dispatch(sub()) }}>-</button>
@@ -20,4 +20,4 @@ const mapStateToProps = (state) => {
         count: state
     }
 }
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect } from 'react-redux'
 import { add, sub } from './actions/index'
 class App extends Component {
     render() {
@@ -10,7 +10,6 @@ class App extends Component {
                     App组件
                 </h1>
                 <hr />
-
                 <p>{count}</p>
                 <button onClick={() => { dispatch(add()) }}>+</button>
                 <button onClick={() => { dispatch(sub()) }}>-</button>
@@ -19,9 +18,9 @@ class App extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
+const mapStoreToProps = (state) => {
     return {
         count: state
     }
 }
-export default connect(mapStateToProps)(App);
+export default connect(mapStoreToProps)(App)

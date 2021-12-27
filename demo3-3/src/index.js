@@ -1,16 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReractDOM from 'react-dom'
+import { createStore } from 'redux'
 import App from './App'
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import { counter as reducer } from './reducers/counter'
+import { conuter as reducer } from './reducers/counter'
+import { Provider } from 'react-redux'
 const store = createStore(reducer);
 store.subscribe(() => {
-    console.log("reducer函数被调用了,state的值是", store.getState())
+    console.log("stroe中的state发生改变", store.getState());
 })
-ReactDOM.render(
+ReractDOM.render(
     <Provider store={store}>
         <App />
-    </Provider>,
-    document.getElementById("app")
+    </Provider>, document.getElementById("app")
 )
