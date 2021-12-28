@@ -55,7 +55,7 @@ module.exports = merge(base, {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 3000,
+        port: 3500,
         proxy: {
             "/data": {
                 "target": "http://www.bjlink32.com/data/php",

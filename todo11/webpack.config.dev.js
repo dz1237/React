@@ -1,8 +1,6 @@
-
-const path = require("path");
 const base = require("./webpack.config.base");
 const merge = require("webpack-merge");
-
+const path = require("path");
 module.exports = merge(base, {
     module: {
         rules: [
@@ -11,7 +9,8 @@ module.exports = merge(base, {
                 use: [
                     {
                         loader: "style-loader"
-                    }, {
+                    },
+                    {
                         loader: "css-loader",
                         options: {
                             modules: false
@@ -30,6 +29,9 @@ module.exports = merge(base, {
                         options: {
                             modules: true
                         }
+                    },
+                    {
+                        loader: "less-loader"
                     }
                 ]
             },
@@ -43,11 +45,11 @@ module.exports = merge(base, {
                         loader: "css-loader"
                     },
                     {
-                        loader: "sass.loader"
+                        loader: "sass-loader"
                     }
                 ]
-            }
 
+            }
         ]
     },
     mode: "development",
@@ -55,7 +57,7 @@ module.exports = merge(base, {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 3020,
+        port: 9000,
         proxy: {
             "/data": {
                 "target": "http://www.bjlink32.com/data/php",
@@ -70,4 +72,4 @@ module.exports = merge(base, {
             errors: true
         }
     }
-})
+});

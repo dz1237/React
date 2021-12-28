@@ -29,7 +29,7 @@ export default class Footer extends Component {
                 </ul>
                 <button className="clear-completed"
                     onClick={clearCompleted}>
-                    Clear commpleted
+                    Clear completed
                 </button>
             </footer >
 

@@ -28,7 +28,7 @@ export default class App extends Component {
     }
     //删除todo
     delTodo = (todo) => {
-        let { todoDatas } = this.state;
+        let { todoDatas, todoNum } = this.state;
         todoDatas = todoDatas.filter(value => {
             if (todo.id === value.id) {
                 if (todo.hasCompleted) {
