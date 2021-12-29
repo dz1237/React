@@ -12,9 +12,7 @@ export default class Item extends Component {
         }, () => {
             this.refs.myInput.value = todo.value,
                 this.refs.myInput.focus()
-        }
-
-        )
+        })
     }
     render() {
         let { inEdit, flag } = this.state
