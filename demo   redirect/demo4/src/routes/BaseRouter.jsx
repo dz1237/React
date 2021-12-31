@@ -3,9 +3,12 @@ import { HashRouter as Router, Route, NavLink, Link, Switch, Redirect } from 're
 import Home from '../Components/Home';
 import News from '../Components/News';
 import Course from '../Components/Course';
+// import Book from '../Components/Book';
 import Cool from '../Components/Cool';
 import './../css/style.css'
 import NoMatch from '../Components/NoMatch';
+
+
 const BaseRouter = () => {
     let style = {
         background: "#ff0",
@@ -37,7 +40,7 @@ const BaseRouter = () => {
                         <br />
                     </li>
                     <li>
-                        <NavLink activeStyle={style} replace to="/cool" >
+                        <NavLink activeStyle={style} replace to="/cool/food" >
                             Cool页
                         </NavLink>
                         <br />
@@ -52,7 +55,8 @@ const BaseRouter = () => {
                     <Route path="/" exact component={Home} />
                     <Route path="/news/:title/:content" strict component={News} />
                     <Route path="/course" component={Course} />
-                    <Route path="/cool/" component={Cool} />
+                    <Route exact path="/cool/food" component={Cool} />
+                    <Redirect from="cool" to="cool/food" />
                     <Route component={NoMatch} />
                 </Switch>
             </div>
