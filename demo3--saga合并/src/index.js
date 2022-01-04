@@ -6,10 +6,10 @@ import createSagaMiddleWare from 'redux-saga'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import App from './App';
 import { rootReducer } from './reducers';
-import { watchgaddAsync } from './sagas/index';
+import { rootSaga } from './sagas/index';
 const sagaMiddleWare = createSagaMiddleWare();
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleWare)));
-sagaMiddleWare.run(watchgaddAsync);
+sagaMiddleWare.run(rootSaga);
 ReactDOM.render(
   <Provider store={store}>
     <App />
@@ -26,4 +26,5 @@ ReactDOM.render(
 // 5.点击-->dispatch({type:ADDASYNC})-->去调用watchgaddAsync-->然后发送ADDASYNC到
 // reducer进行比对   返回默认的state=0，再去调用gaddAsync这个工作generator函数，延迟两秒去转发同步ADD到
 // reducer进行比对   和ADD对应  state+1;  之后进行重新render   显示出来
+
 

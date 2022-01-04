@@ -1,4 +1,4 @@
-import { ADD, SUB, ADDASYNC } from '../constants/index'
+import { ADD, SUB, ADDASYNC, FETCHUSER } from '../constants/index'
 export const add = () => {
     return {
         type: ADD
@@ -12,5 +12,10 @@ export const sub = () => {
 export const addasync = () => {
     return {
         type: ADDASYNC
+    }
+}
+export const fetchUser = () => {
+    return {
+        type: FETCHUSER
     }
 }
