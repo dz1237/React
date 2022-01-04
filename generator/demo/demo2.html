@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./axios.js"></script>
+    <script>
+        function* gen() {
+            var posts = yield axios.get("https://jsonplaceholder.typicode.com/posts")
+            console.log("posts", posts);
+            var users = yield axios.get("https://jsonplaceholder.typicode.com/users")
+            console.log("users", users);
+
+        }
+        var g1 = gen();
+        g1.next().value.then(function (posts) {
+            g1.next(posts).value.then(function (users) {
+                g1.next(users);
+            })
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

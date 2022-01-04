@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function* hello() {
+            yield "tom";
+            console.log("嘿嘿");
+            yield "jarray";
+            yield "suasan";
+        }
+        // 调用generatot函数，调用遍历器对象
+        var gen = hello();
+        console.log(gen.next());
+        console.log(gen.next());
+        console.log(gen.next());
+        console.log(gen.next());
+        // 分析：yield语句值
+        // next（）方法返回值
+        // 是不同的东西
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
