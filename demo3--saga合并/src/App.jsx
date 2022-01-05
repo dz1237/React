@@ -1,9 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { add, sub, addasync, fetchUser } from './actions'
+import { add, sub, addasync, fetchUser, fetchTodo } from './actions'
 class App extends Component {
     render() {
-        let { add, sub, counter, addasync, fetchUser } = this.props
+        // console.log("thsi.props", this.props);
+        let { add, sub, counter, addasync, fetchUser, fetchTodo } = this.props
+        let { isLoading, users, error } = this.props.users;
+        let data = null;
+        if (isLoading) {
+
+            data = "...Lodaing";
+        }
+        else if (error) {
+            data = error.message
+        } else {
+            data = users && users.data[0].name
+        }
+
         return (
             <div>
                 <h1>App组件</h1>
@@ -17,14 +30,19 @@ class App extends Component {
                 reducer进行比对   和ADD对应  state+1;  之后进行重新render   显示出来
                  */}
                 <hr />
+                <br />
+                <p>{data}</p>
                 <button onClick={() => { fetchUser() }}>get user</button>
+                <hr />
+                <button onClick={() => { fetchTodo() }}>get Todo</button>
             </div>
         )
     }
 }
 const mapStateToProps = (state) => {
     return {
-        counter: state.counter
+        counter: state.counter,
+        users: state.users
     }
 }
-export default connect(mapStateToProps, { add, sub, addasync, fetchUser })(App)
+export default connect(mapStateToProps, { add, sub, addasync, fetchUser, fetchTodo })(App)
