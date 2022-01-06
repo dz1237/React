@@ -4,7 +4,7 @@ export const HeaderWrapper = styled.div`
     prosition:relative;
     height:56px;
     border-bottom:1px solid #f0f0f0;
-`
+`;
 export const Logo = styled.a`
     height:56px;
     width:100px;
@@ -23,7 +23,7 @@ export const Nav = styled.div`
     box-sizing:border-box;
     margin:0px auto;
     // background:#f00;
-`
+`;
 export const NavItem = styled.div`
     line-height:56px;
     padding:0 15px;
@@ -39,29 +39,62 @@ export const NavItem = styled.div`
     &.active{
         color:#ea6f5a
     }
-`
+`;
+export const SearchWrapper = styled.div`
+
+    position:relative;
+    float:left;
+    .iconfont{
+        position:absolute;
+        right:5px;
+        bottom:5px;
+        width:30px;
+        border-radius:15px;
+        line-height:30px;
+        text-align:center;
+        &.focused{
+            background:#777;
+            color:#fff;
+        }
+    }
+`;
 export const NavSearch = styled.input.attrs({ placeholder: '搜索' })`
     width:160px;
     height:38px;
     margin-top:9px;
     margin-left:20px;
-    padding:0px 20px;
+    padding:0px 30px 0px 20px;
     box-sizing:border-box;
     outline:none;
     border:none;
     border-radius:19px;
     background:#eee;
     font-size:14px;
+    color:#666;
     &::placeholder{
         color:#999
+    }&.focused{
+        width:300px;
     }
-`
+    &.slide-enter{
+        transition:all .5s ease-out;
+    }
+    &.slide-enter-active{
+        width:300px;
+    }
+    &.slide-exit{
+        transition:all .5s ease-out;
+    }
+    &.slide-exit-active{
+        width:160px;
+    }
+`;
 export const Addition = styled.div`
     position: absolute;
     right:0px;
     top:0px;
     height:56px;
-`
+`;
 export const Button = styled.div`
     float:right;
     line-height:38px;
@@ -78,4 +111,4 @@ export const Button = styled.div`
         color:#fff;
         background:#ec6149;
     }
-`
+`;

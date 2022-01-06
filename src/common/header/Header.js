@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 import {
     HeaderWrapper,
     Logo,
@@ -7,11 +8,36 @@ import {
     NavItem,
     NavSearch,
     Addition,
-    Button
+    Button,
+    SearchWrapper
 } from './style'
-// import { iconfont } from '../../statics/iconfont/iconfont';
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+const mapDispatchToProsp = (dispatch) => {
+    return {
+
+    }
+}
+@connect(mapStateToProps, mapDispatchToProsp)
 class Header extends Component {
+    state = {
+        focused: false
+    }
+    handleFocus = () => {
+        this.setState({
+            focused: true
+        })
+    }
+    handleBlur = () => {
+        this.setState({
+            focused: false
+        })
+    }
     render() {
+        let { focused } = this.state;
         return (
             <HeaderWrapper >
                 <Logo href='/' />
@@ -22,7 +48,15 @@ class Header extends Component {
                     <NavItem className='right'>
                         <span className="iconfont">&#xe600;</span>
                     </NavItem>
-                    <NavSearch></NavSearch>
+                    <SearchWrapper>
+                        <CSSTransition timeout={500} in={focused} classNames="slide">
+                            <NavSearch className={this.state.focused ? "focused" : ""}
+                                onFocus={this.handleFocus}
+                                onBlur={this.handleBlur}
+                            ></NavSearch>
+                        </CSSTransition>
+                        <span className={this.state.focused ? "focused iconfont" : "iconfont"}>&#xe617;</span>
+                    </SearchWrapper>
                 </Nav>
                 <Addition>
                     <Button className='writing'>
