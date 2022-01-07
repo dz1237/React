@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "7934637",
+      "name": "换一批",
+      "font_class": "huanyipi",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "17759735",
+      "name": "换一批",
+      "font_class": "huanyipi1",
+      "unicode": "e792",
+      "unicode_decimal": 59282
+    },
+    {
       "icon_id": "1207",
       "name": "可爱的",
       "font_class": "keaide",

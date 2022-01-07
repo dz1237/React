@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.div`
 `;
 export const Logo = styled.a`
     height:56px;
-    width:100px;
+    width:100px; 
     display:block;
     position:absolute;
     top:0;
@@ -44,7 +44,7 @@ export const SearchWrapper = styled.div`
 
     position:relative;
     float:left;
-    .iconfont{
+    .zoom{
         position:absolute;
         right:5px;
         bottom:5px;
@@ -96,7 +96,6 @@ export const SerachInfo = styled.div`
     width:300px;
     padding:0px 20px;
     box-shadow:0 0 8px rgba(0,0,0,.2);
-    // background:#ff0;
 `;
 export const SerachInfoTitle = styled.div`
     margin-top:20px;
@@ -104,10 +103,19 @@ export const SerachInfoTitle = styled.div`
     line-height:20px;
     font-size:14px;
     color:#969696;
+   
 `;
 export const SerachInfoSwitch = styled.div`
     float:right;
     font-size:13px;
+    .spin{
+        display:block;
+        float:left;
+        font-size:14px;
+        margin-right:2px; 
+        transition:all .5s ease-in;
+        transform-origin:center center;
+    }
 `;
 export const SerachInfoList = styled.div`
     overflow:hidden;

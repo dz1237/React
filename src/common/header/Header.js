@@ -18,26 +18,31 @@ import {
     SerachInfoList
 } from './style'
 class Header extends Component {//类组件
-    getSerachInfo = (show) => {
-        if (show) {
+    getSerachInfo = () => {
+        let { page, totalPage, list, focused, mouseIn, handleMouse, handleLeave, handleChangePaghe } = this.props
+        const pageList = [];
+
+        for (let i = (page - 1) * 10; i < page * 10; i++) {
+            pageList.push(<SerachInfoItem key={i}>{list[i]}</SerachInfoItem>)
+        }
+        if (focused || mouseIn) {
             return (
-                <SerachInfo >
+                <SerachInfo
+                    onMouseEnter={handleMouse}
+                    onMouseLeave={handleLeave}>
                     <SerachInfoTitle>
                         热门搜索
-                        <SerachInfoSwitch>
-                            换一批
+
+                        <SerachInfoSwitch
+                            onClick={() => { handleChangePaghe(page, totalPage, this.spinIcon) }}
+                        ><div><span ref={(icon => { this.spinIcon = icon })} className="iconfont spin">&#xe655;</span>
+                                换一批</div>
                         </SerachInfoSwitch>
                     </SerachInfoTitle>
                     <SerachInfoList>
-                        <SerachInfoItem>推荐</SerachInfoItem>
-                        <SerachInfoItem>军事</SerachInfoItem>
-                        <SerachInfoItem>生活</SerachInfoItem>
-                        <SerachInfoItem>科技</SerachInfoItem>
-                        <SerachInfoItem>汽车</SerachInfoItem>
-                        <SerachInfoItem>新闻</SerachInfoItem>
-                        <SerachInfoItem>娱乐</SerachInfoItem>
-                        <SerachInfoItem>我的生活</SerachInfoItem>
-
+                        {
+                            pageList
+                        }
                     </SerachInfoList>
                 </SerachInfo>
             )
@@ -65,7 +70,7 @@ class Header extends Component {//类组件
                                 onBlur={handleBlur}
                             ></NavSearch>
                         </CSSTransition>
-                        <span className={focused ? "focused iconfont" : "iconfont"}>&#xe617;</span>
+                        <span className={focused ? "focused iconfont zoom" : "iconfont zoom"}>&#xe617;</span>
                         {this.getSerachInfo(focused)}
                     </SearchWrapper>
                 </Nav>
@@ -82,19 +87,46 @@ class Header extends Component {//类组件
 }
 const mapStateToProps = (state) => {
     return {
-        focused: state.getIn(['HeaderReducer', 'focused'])
+        focused: state.getIn(['HeaderReducer', 'focused']),
+        list: state.getIn(['HeaderReducer', 'list']),
+        page: state.getIn(['HeaderReducer', 'page']),
+        mouseIn: state.getIn(['HeaderReducer', 'mouseIn']),
+        totalPage: state.getIn(['HeaderReducer', 'totalPage']),
         // state.get('HeaderReducer').get('focused')
     }
 }
 const mapDispatchToProsp = (dispatch) => {
     return {
         handleFocus() {
-
+            dispatch(actions.getList());
             dispatch(actions.add());
-
         },
         handleBlur() {
             dispatch(actions.sub());
+        },
+        handleMouse() {
+            dispatch(actions.changemouseenter());
+        },
+        handleLeave() {
+            dispatch(actions.changemouseleave());
+        },
+        handleChangePaghe(page, totalPage, spin) {
+            let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
+            console.log(originAngle)
+            if (originAngle) {
+                originAngle = parseInt(originAngle, 10);
+            }
+            else {
+                originAngle = 0;
+            }
+            spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
+            // spin.style.transform = 'rotate(360deg)'
+            if (page < totalPage) {
+                dispatch(actions.changepage(page + 1));
+            } else {
+                dispatch(actions.changepage(1));
+            }
+
         }
     }
 }

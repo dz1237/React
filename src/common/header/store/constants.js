@@ -1,2 +1,6 @@
 export const ADD = "ADD"
 export const SUB = "SUB"
+export const changeList = "changeList"
+export const changeMouseEnter = "changeMouseEnter"
+export const changeMouseLeave = "changeMouseLeave"
+export const changePage = "changePage"

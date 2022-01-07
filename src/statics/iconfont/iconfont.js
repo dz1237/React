@@ -1,4 +1,3 @@
-
 import { createGlobalStyle } from 'styled-components';
 import icon1 from './iconfont.woff2?t=1641449997768'
 import icon2 from './iconfont.woff?t=1641449997768'
@@ -33,3 +32,4 @@ export const IconGlobalStyle = createGlobalStyle
 //   content: "\e615";
 // }
 `
+
