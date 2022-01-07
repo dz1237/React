@@ -52,7 +52,7 @@ class Header extends Component {//类组件
         }
     }
     render() {
-        let { focused, handleFocus, handleBlur } = this.props;
+        let { focused, handleFocus, handleBlur, list } = this.props;
         return (
             <HeaderWrapper >
                 <Logo href='/' />
@@ -66,7 +66,7 @@ class Header extends Component {//类组件
                     <SearchWrapper>
                         <CSSTransition timeout={500} in={focused} classNames="slide">
                             <NavSearch className={focused ? "focused" : ""}
-                                onFocus={handleFocus}
+                                onFocus={() => { handleFocus(list) }}
                                 onBlur={handleBlur}
                             ></NavSearch>
                         </CSSTransition>
@@ -97,8 +97,10 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProsp = (dispatch) => {
     return {
-        handleFocus() {
-            dispatch(actions.getList());
+        handleFocus(list) {
+            if (list.size === 0) {
+                dispatch(actions.getList(list));
+            };
             dispatch(actions.add());
         },
         handleBlur() {
@@ -112,7 +114,6 @@ const mapDispatchToProsp = (dispatch) => {
         },
         handleChangePaghe(page, totalPage, spin) {
             let originAngle = spin.style.transform.replace(/[^0-9]/ig, '');
-            console.log(originAngle)
             if (originAngle) {
                 originAngle = parseInt(originAngle, 10);
             }

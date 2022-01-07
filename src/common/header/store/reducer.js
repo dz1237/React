@@ -1,7 +1,7 @@
 import { ADD, SUB, changeList, changeMouseEnter, changeMouseLeave, changePage } from './constants' // immutabble对象的set方法会结合之前immutable对象的值和设置的值// 返回一个全新的对象
 const { fromJS } = require('immutable');
 const defaultState = fromJS({
-    focused: true,
+    focused: false,
     mouseIn: false,
     list: [],//初始值是一个immutable数组
     page: 1,

@@ -13,8 +13,7 @@ export const Logo = styled.a`
     top:0;
     left:0;
     background:url(${logoPic});
-    background-size:contain;
-    
+    background-size:contain; 
 `;
 export const Nav = styled.div`
     width:960px;
@@ -41,7 +40,6 @@ export const NavItem = styled.div`
     }
 `;
 export const SearchWrapper = styled.div`
-
     position:relative;
     float:left;
     .zoom{
@@ -73,7 +71,8 @@ export const NavSearch = styled.input.attrs({ placeholder: '搜索' })`
     color:#666;
     &::placeholder{
         color:#999
-    }&.focused{
+    }
+    &.focused{
         width:300px;
     }
     &.slide-enter{
@@ -96,6 +95,7 @@ export const SerachInfo = styled.div`
     width:300px;
     padding:0px 20px;
     box-shadow:0 0 8px rgba(0,0,0,.2);
+    background:#fff;
 `;
 export const SerachInfoTitle = styled.div`
     margin-top:20px;
@@ -103,9 +103,9 @@ export const SerachInfoTitle = styled.div`
     line-height:20px;
     font-size:14px;
     color:#969696;
-   
 `;
 export const SerachInfoSwitch = styled.div`
+    cursor:pointer;
     float:right;
     font-size:13px;
     .spin{

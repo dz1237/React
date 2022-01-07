@@ -4,7 +4,7 @@ import icon2 from './iconfont.woff?t=1641449997768'
 import icon3 from './iconfont.ttf?t=1641449997768'
 
 export const IconGlobalStyle = createGlobalStyle
-  `
+  ` 
 @font-face {
   font-family: "iconfont"; /* Project id 3121869 */
   src: url(${icon1}) format('woff2'),
