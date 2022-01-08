@@ -110,7 +110,26 @@ export const WriterWarpper = styled.div`
     width:278px;
     border-radius:3px;
     text-align:center;
-
-    
-   
+`;
+export const LoadMore = styled.div`
+    width:100%;
+    height:40px;
+    line-height:40px;
+    margin:30px 0px;
+    background:#a5a5a5;
+    border-radius:20px;
+    color:#fff;
+    text-align:center;
+    cursor:pointer;
+`;
+export const BackTop = styled.div`
+    position:fixed;
+    right:30px;
+    bottom:30px;
+    width:60px;
+    height:60px;
+    line-height:60px;
+    text-align:center;
+    border:1px solid #ccc;
+    background:#fafafa;
 `;

@@ -1,10 +1,13 @@
-import { changeHomeData } from './constants';
+import { changeHomeData, ADDHOMELIST, CHANGETOPSHOW } from './constants';
 const { fromJS } = require('immutable')
 const defaultState = fromJS({
     topicList: [],
     articleList: [],
-    recommenList: []
+    recommenList: [],
+    articlePage: 1,
+    showScorll: false,
 });
+
 const reducer = (state = defaultState, action) => {
     switch (action.type) {
         case changeHomeData:
@@ -13,6 +16,15 @@ const reducer = (state = defaultState, action) => {
                 articleList: fromJS(action.articleList),
                 recommenList: fromJS(action.recommenList)
             })
+        case ADDHOMELIST:
+            return state.merge({
+                'articleList': state.get('articleList').concat(action.list),
+                'articlePage': action.nextPage
+            })
+        case CHANGETOPSHOW:
+            return (
+                state.set('showScorll', action.show)
+            )
         default:
             return state;
     }

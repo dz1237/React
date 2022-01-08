@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import List from './compontens/List';
 import Topic from './compontens/Topic';
@@ -9,10 +8,16 @@ import { actions } from './store';
 import {
     HomeRight,
     HomeWrapper,
-    HomeLeft
+    HomeLeft,
+    BackTop
 } from './style'
-class Home extends Component {
+class Home extends PureComponent {
+
+    handTop() {
+        window.scrollTo(0, 0);
+    }
     render() {
+        let { showScorll, } = this.props;
         return (
             <HomeWrapper>
                 <HomeLeft>
@@ -24,19 +29,45 @@ class Home extends Component {
                     <Recommen />
                     <Writer />
                 </HomeRight>
+                {showScorll ? <BackTop onClick={this.handTop}>Top</BackTop> : ""}
+
             </HomeWrapper>
         )
     }
     componentDidMount() {
-        this.props.changehomedata()
+        this.props.changehomedata();
+        this.bindEvents()
+    }
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.props.changScroolTopShow)
+    }
+    bindEvents() {
+        window.addEventListener('scroll', this.props.changScroolTopShow)
+    }
+
+}
+
+const mapStateToProps = (state) => {
+    return {
+        showScorll: state.getIn(['HomeReducer', 'showScorll'])
     }
 }
+
 const mapDispatchToProps = (dispatch) => {
     return {
         changehomedata() {
-            const action = actions.getHomeInfo();
-            dispatch(action)
+
+            dispatch(actions.getHomeInfo())
+        },
+        changScroolTopShow() {
+            let windowscroll = document.documentElement.scrollTop;
+            if (windowscroll > 400) {
+                dispatch(actions.changeTopShow(true))
+            } else {
+                dispatch(actions.changeTopShow(false))
+            }
+            //windowscrollconsole.log(document.documentElement.scrollTop)
         }
     }
 }
-export default connect(null, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from './common/header/Header.jsx'
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route, } from 'react-router-dom'
+import { BrowserRouter as Router, Route, } from 'react-router-dom'
 import store from './store/index'
 import { GlobalStyle } from './style'
 import { IconGlobalStyle } from './statics/iconfont/iconfont'
@@ -11,17 +11,17 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div>
-          <Header />
-          <BrowserRouter>
-            <div>
-              <Route path='/' exact component={Home} />
-              <Route path='/detial' component={Detial} />
-            </div>
-          </BrowserRouter>
-          <GlobalStyle />
-          <IconGlobalStyle />
-        </div >
+
+        <Router>
+          <div>
+            <Header />
+            <Route path='/' exact component={Home} />
+            <Route path='/detial' component={Detial} />
+          </div>
+
+        </Router>
+        <GlobalStyle />
+        <IconGlobalStyle />
       </Provider >
     )
   }

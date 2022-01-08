@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { RecommenWarpper, RecommenItem, RecommenItem1, RecommenItem2 } from '../style'
 
-class Recommen extends Component {
+class Recommen extends PureComponent {
     render() {
-        let { list } = this.props
+        //let { list } = this.props
         return (
 
             <RecommenWarpper>
                 {/* {
-                    list.map((item) => {
+                    list.map((item,index) => {
                         return (
-                            < RecommenItem key={item.get('id')} imgUrl={item.get('imgUrl')} />
+                            < RecommenItem key={index} imgUrl={item.get('imgUrl')} />
                         )
                     })
                 } */}
