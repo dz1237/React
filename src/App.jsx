@@ -8,6 +8,7 @@ import { IconGlobalStyle } from './statics/iconfont/iconfont'
 import Detial from './routers/Detial/Detial'
 import Home from './routers/Home/Home'
 import Login from './routers/Login/Login'
+import Write from './routers/Write/Write'
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,7 @@ class App extends Component {
             <Header />
             <Route path='/' exact component={Home} />
             <Route path='/detial/:id' exact component={Detial} />
+            <Route path='/write' exact component={Write} />
             <Route path='/login' exact component={Login} />
           </div>
         </Router>

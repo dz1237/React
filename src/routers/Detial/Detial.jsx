@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { actions } from './store/index'
 import {
     DetialWrapper,
@@ -40,5 +41,5 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Detial);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Detial));
 
