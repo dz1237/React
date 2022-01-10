@@ -16,7 +16,8 @@ class Topic extends PureComponent {
                     {
                         list.map((item) => {
                             return (
-                                <TopicItem key={item.get('id')}>
+
+                                <TopicItem TopicItem key={item.get('id')} >
                                     <img className='topic-pic' alt='' src={item.get('imgUrl')} />
                                     {item.get('title')}
                                 </TopicItem>
@@ -28,7 +29,7 @@ class Topic extends PureComponent {
 
                 </TopicWrapper>
 
-            </div>
+            </div >
         )
     }
 }
@@ -38,9 +39,5 @@ const mapStateToProps = (state) => {
         list: state.getIn(['HomeReducer', 'topicList'])
     }
 }
-const mapDispatchToProps = (dispatch) => {
-    return {
 
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Topic);
+export default connect(mapStateToProps)(Topic);

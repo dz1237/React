@@ -11,9 +11,5 @@ class Writer extends PureComponent {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
 
-    }
-}
-export default connect(mapStateToProps)(Writer)
+export default connect()(Writer)

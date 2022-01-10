@@ -6,12 +6,14 @@ import { actions } from '../store/index'
 class List extends PureComponent {
     render() {
         let { list, getMoreList, page } = this.props;
+
         return (
             <div>
                 {
                     list.map((item, index) => {
+
                         return (
-                            <Link to="/detial" key={index}>
+                            <Link to={'/detial/' + item.get('id')} key={index} >
                                 <ListItem >
                                     <img className='pic' src={item.get('imgUrl')} alt="" />
                                     <ListInfo>
@@ -24,7 +26,7 @@ class List extends PureComponent {
                     })
                 }
                 <LoadMore onClick={() => { getMoreList(page) }}>加载更多</LoadMore>
-            </div>
+            </div >
 
         )
     }

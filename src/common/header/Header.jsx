@@ -97,7 +97,7 @@ const mapStateToProps = (state) => {
         // state.get('HeaderReducer').get('focused')
     }
 }
-const mapDispatchToProsp = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
         handleFocus(list) {
             if (list.size === 0) {
@@ -133,4 +133,4 @@ const mapDispatchToProsp = (dispatch) => {
         }
     }
 }
-export default connect(mapStateToProps, mapDispatchToProsp)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

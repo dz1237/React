@@ -4,12 +4,12 @@ import { RecommenWarpper, RecommenItem, RecommenItem1, RecommenItem2 } from '../
 
 class Recommen extends PureComponent {
     render() {
-        //let { list } = this.props
+        // let { list } = this.props
         return (
 
             <RecommenWarpper>
                 {/* {
-                    list.map((item,index) => {
+                    list.map((item, index) => {
                         return (
                             < RecommenItem key={index} imgUrl={item.get('imgUrl')} />
                         )
