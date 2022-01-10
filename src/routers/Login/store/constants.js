@@ -1,0 +1,3 @@
+export const CHANGELOGIN = "CHANGELOGIN"
+
+export const CHANGELOGINOUT = "CHANGELOGINOUT"

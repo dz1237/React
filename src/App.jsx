@@ -12,7 +12,6 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-
         <Router>
           <div>
             <Header />
@@ -20,7 +19,6 @@ class App extends Component {
             <Route path='/detial/:id' exact component={Detial} />
             <Route path='/login' exact component={Login} />
           </div>
-
         </Router>
         <GlobalStyle />
         <IconGlobalStyle />
