@@ -63,7 +63,6 @@ class Header extends Component {//类组件
                     <NavItem className='left active'>首页</NavItem>
                     <NavItem className='left'>下载App</NavItem>
                     {login ? <NavItem className='right' onClick={logout} >退出</NavItem> : <Link to='/login'><NavItem className='right'>登录</NavItem></Link>}
-
                     <NavItem className='right'>
                         <span className="iconfont">&#xe600;</span>
                     </NavItem>
@@ -98,7 +97,6 @@ const mapStateToProps = (state) => {
         page: state.getIn(['HeaderReducer', 'page']),
         mouseIn: state.getIn(['HeaderReducer', 'mouseIn']),
         totalPage: state.getIn(['HeaderReducer', 'totalPage']),
-
         login: state.getIn(['LoginReducer', 'login']),
     }
 }
