@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Admin from "./admin";
+// import Admin from "./admin";
 import './style/common.less'
+import Router from './router'
 ReactDOM.render(
-  <Admin />,
+  <Router />,
   document.getElementById("root")
 )
