@@ -4,7 +4,8 @@ import App from './App'
 import Login from './page/login'
 import Admin from "./admin";
 import Buttons from "./page/ui/buttons";
-import NoMatch from "./page/nomatch";
+// import NoMatch from "./page/nomatch";
+import Home from "./page/home";
 export default class IRouter extends Component {
     render() {
         return (
@@ -14,8 +15,9 @@ export default class IRouter extends Component {
                     <Route path="/login" component={Login} />
                     <Route path="/admin" render={() =>
                         <Admin>
+                            <Route path="/admin/home/home" component={Home} />
                             <Route path="/admin/ui/buttons" component={Buttons} />
-                            <Route component={NoMatch} />
+                            {/* <Route component={NoMatch} /> */}
                         </Admin>
                     } />
 
