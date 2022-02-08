@@ -11,6 +11,7 @@ import Loadings from './page/ui/loadings'
 import Notice from './page/ui/notice'
 import Message from './page/ui/message'
 import Tab from './page/ui/tabs'
+import Gallery from './page/ui/gallery'
 export default class IRouter extends Component {
     render() {
         return (
@@ -28,6 +29,7 @@ export default class IRouter extends Component {
                                 <Route path="/admin/ui/notice" component={Notice} />
                                 <Route path="/admin/ui/message" component={Message} />
                                 <Route path="/admin/ui/tabs" component={Tab} />
+                                <Route path="/admin/ui/gallery" component={Gallery} />
                                 <Route component={NoMatch} />
                             </Switch>
                         </Admin>
