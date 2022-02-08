@@ -23,3 +23,15 @@
 .header .breadcrumb .weather .date {
   margin-right: 10px;
 }
+.header .breadcrumd-title {
+  text-align: center;
+}
+.header .breadcrumd-title:after {
+  position: absolute;
+  left: 65px;
+  top: 39px;
+  content: "";
+  border-top: 9px solid #ffffff;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+}
