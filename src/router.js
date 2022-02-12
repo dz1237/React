@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { HashRouter as Router, Route, Switch, } from 'react-router-dom'
 import App from './App'
-import Login from './page/login'
+// import Login from './page/login'
 import Admin from "./admin";
 import Buttons from "./page/ui/buttons";
 import NoMatch from "./page/nomatch";
@@ -12,16 +12,19 @@ import Notice from './page/ui/notice'
 import Message from './page/ui/message'
 import Tab from './page/ui/tabs'
 import Gallery from './page/ui/gallery'
+import carousel from './page/ui/carousel'
+import Login from './page/form/login'
+import Reg from './page/form/reg'
+import Basic from './page/table/basicTable'
 export default class IRouter extends Component {
     render() {
         return (
             <Router>
                 <App>
-
-                    <Route path="/login" component={Login} />
                     <Route path="/admin" render={() =>
                         <Admin>
                             <Switch>
+
                                 <Route path="/admin/home/home" component={Home} />
                                 <Route path="/admin/ui/buttons" component={Buttons} />
                                 <Route path="/admin/ui/modals" component={Modals} />
@@ -30,6 +33,10 @@ export default class IRouter extends Component {
                                 <Route path="/admin/ui/message" component={Message} />
                                 <Route path="/admin/ui/tabs" component={Tab} />
                                 <Route path="/admin/ui/gallery" component={Gallery} />
+                                <Route path="/admin/ui/carousel" component={carousel} />
+                                <Route path="/admin/form/login" component={Login} />
+                                <Route path="/admin/form/reg" component={Reg} />
+                                <Route path="/admin/table/basic" component={Basic} />
                                 <Route component={NoMatch} />
                             </Switch>
                         </Admin>

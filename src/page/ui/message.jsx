@@ -7,7 +7,7 @@ export default class Message extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{ width: "100%" }}>
                 <Card title="全局message" className="card-warp">
                     <Button type="primary" onClick={() => { this.showMessage("success") }}>Success </Button>
                     <Button type="primary" onClick={() => { this.showMessage("info") }}>info </Button>

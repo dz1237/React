@@ -31,7 +31,7 @@ export default class Gallery extends Component {
         ))
 
         return (
-            <div className="card-warp">
+            <div className="card-warp " style={{ width: "100%" }} >
                 <Card title="图片画廊">
                     <Row gutter={20}>
                         <Col md={5}>
@@ -57,6 +57,7 @@ export default class Gallery extends Component {
                                 visible: false
                             })
                         }}
+                        title="图片画廊"
                         footer={null}
                     >
                         <img src={`/gallery/${this.state.currentImg}`} alt="" width='100%' />

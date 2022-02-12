@@ -17,7 +17,7 @@ export default class Notice extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{ width: "100%" }}>
                 <Card title="通知提醒框" className="card-warp">
                     <Button type="primary" onClick={() => { this.openNotification("success") }} >Success</Button>
                     <Button type="primary" onClick={() => { this.openNotification("info") }} >Info</Button>

@@ -28,7 +28,7 @@ export default class Modals extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{ width: "100%" }}>
                 <Card title="基础模态框" className="card-warp">
                     <Button type="primary" onClick={() => { this.handleOpen("showModal1") }}>Open</Button>
                     <Button type="primary" onClick={() => { this.handleOpen("showModal2") }}>自定义</Button>

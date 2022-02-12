@@ -20,7 +20,7 @@ export default class Buttons extends Component {
     }
     render() {
         return (
-            <div>
+            <div style={{ width: "100%" }}>
                 <Card title="基础按钮" className="card-warp">
                     <Button type="primary">Imooc</Button>
                     <Button >Imooc</Button>

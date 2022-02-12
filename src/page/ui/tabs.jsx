@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button, message, Icon, Tabs, } from 'antd'
+import { Card, Tabs, } from 'antd'
 import { CheckCircleOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons'
 import './ui.less'
 const TabPane = Tabs.TabPane
@@ -66,7 +66,7 @@ export default class Tab extends Component {
 
     render() {
         return (
-            <div>
+            <div style={{ width: "100%" }}>
                 <Card title="Tab标签" className="card-warp">
                     <Tabs defaultActiveKey="1" onChange={this.callback}>
                         <TabPane tab="Tab 1" key="1">欢迎你来到大壮单车1！</TabPane>

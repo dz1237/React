@@ -5,8 +5,8 @@ export default class Loadings extends Component {
     render() {
         const icon = <Icon type="loading" style={{ fontSize: 24 }} />
         return (
-            <div>
-                <Card title="Spin的用法" className="card-wrp">
+            <div style={{ width: "100%" }}>
+                <Card title="Spin的用法" className="card-wrp" >
                     <Spin />
                     <Spin size="small" style={{ margin: 10 }} />
                     <Spin size="default" style={{ margin: 10 }} />
