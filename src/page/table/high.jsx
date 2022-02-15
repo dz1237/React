@@ -30,9 +30,6 @@ export default class High extends Component {
                 })
                 this.setState({
                     dataSource: res.result.list,
-
-
-
                 })
             }
         })
