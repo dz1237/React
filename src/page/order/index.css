@@ -1,0 +1,22 @@
+.detial-item .item-title {
+  margin: 20px 0;
+  font-size: 20px;
+  color: #bebebe;
+}
+.detial-item .detial-form li {
+  line-height: 40px;
+  font-size: 15px;
+}
+.detial-item .detial-form li .detial-form-left {
+  float: left;
+  width: 164px;
+  text-align: right;
+  color: #999;
+}
+.detial-item .detial-form li .detial-form-content {
+  padding-left: 194px;
+}
+.order-map {
+  height: 450px;
+  margin: 25px -31px 0;
+}

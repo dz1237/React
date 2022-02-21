@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, message, Modal, Table, Button } from 'antd'
-import axios from "../.././axios/index";
+import axios from "../.././axios/index1";
 import Utils from '../../utils/utils'
 export default class Basic extends Component {
     state = {
@@ -59,8 +59,6 @@ export default class Basic extends Component {
                 param: {
                     page: this.params.page
                 },
-                // isShowLoading: false
-
             }
         }).then((res) => {
             if (res.code === 0) {

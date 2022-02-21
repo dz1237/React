@@ -1,5 +1,16 @@
 @import './default.less';
 @import './loading.less';
+li,ul{
+    list-style: none;
+}
+.clearfix{
+   &::after{
+       content:'';
+       clear:both;
+       display: block;
+       visibility: hidden;
+   } 
+}
 .container{
     .nav-left{
         // color: #ffffff;
@@ -7,10 +18,10 @@
         // min-width: 180px;
         // height: calc(100vh);  
         // background-color: #001529;
-        width:15%;
+       
         // height:calc(100vh);
         background-color:@colorS;
-        color:@colorM;
+        color:@colorM; width:15%;
     }
     .main{
         // height: calc(100vh);
@@ -32,3 +43,5 @@
         margin-right: -2px;
     }
 }
+
+

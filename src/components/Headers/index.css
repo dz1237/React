@@ -1,11 +1,22 @@
+/** 常用色值 **/
+/** 常用字体大小 **/
 .header .header-top {
+  text-align: right;
   height: 60px;
   line-height: 60px;
   padding: 0 20px;
-  text-align: right;
 }
 .header .header-top a {
   margin-left: 40px;
+}
+.header .header-top .logo {
+  font-size: 18px;
+  float: left;
+  line-height: 60px;
+}
+.header .header-top .logo img {
+  height: 40px;
+  vertical-align: middle;
 }
 .header .breadcrumb {
   height: 40px;
@@ -34,4 +45,13 @@
   border-top: 9px solid #ffffff;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
+}
+.simple-page .header-top {
+  background-color: #1890ff;
+  color: #fff;
+}
+.simple-page .ant-form,
+.simple-page .ant-col-12,
+.simple-page .weather {
+  display: none;
 }

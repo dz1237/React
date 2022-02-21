@@ -1,4 +1,6 @@
-// import React from 'react';
+import React from 'react';
+import { Select } from 'antd'
+const Option = Select.Option
 export default {
     formateDate(time) {
         if (!time) return "";
@@ -20,5 +22,30 @@ export default {
 
         }
 
+    },
+    getOptionList(data) {
+        if (!data) {
+            return [];
+        }
+        let options = [<Option value="0" key="all_key"></Option>]
+        data.map((item) => {
+            options.push(<Option value={item.id} key={item.id}>{item.name}</Option>)
+        })
+        return options
+    },
+    updateSelectedItem(selectedRowKeys, selectedItem, selectedIds) {
+        if (selectedIds) {
+            this.setState({
+                selectedRowKeys,
+                selectedItem,  //选中的那一行
+                selectedIds
+            })
+        } else {
+            this.setState({
+                selectedRowKeys,
+                selectedItem  //选中的那一行
+            })
+        }
     }
+
 }

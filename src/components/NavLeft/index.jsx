@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'antd';
 import { NavLink } from 'react-router-dom';
-// import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import MenuConfig from '../../config/menuConfig'
 import './index.less'
 const { SubMenu } = Menu;

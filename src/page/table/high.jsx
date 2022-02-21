@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Card, message, Modal, Table, Button, Badge } from 'antd'
-import axios from "../.././axios/index";
+import axios1 from "../.././axios/index1";
 
 export default class High extends Component {
     state = {
@@ -14,7 +14,7 @@ export default class High extends Component {
     }
     request = () => {
 
-        axios.ajax({
+        axios1.ajax({
             url: '/table/high/list',
             data: {
                 param: {

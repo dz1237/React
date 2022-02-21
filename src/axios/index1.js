@@ -5,62 +5,55 @@ import Utils from '../utils/utils'
 export default class Axios {
 
 
-    // static requestList(_this, url, params, isMock) {
+    // static requestList(_this, url, params) {
+
     //     var data = {
-    //         params: params,
-    //         isMock
+    //         params,
     //     }
     //     this.ajax({
     //         url,
     //         data,
     //     }).then(data => {
-    //         if (data && data.result) {
-    //             this.setState({
-    //                 list: data.result.item_list.map((item, index) => {
-    //                     item.key = index;
-    //                     return item;
-    //                 }),
-    //                 pagination: Utils.pagination(data, (current) => {
+    //         if (data.code === 0) {
+    //             let dataSource = data.result.item_list.map((item, index) => {
+    //                 item.key = index;
+
+    //                 return item
+    //             })
+
+    //             _this.setState({
+
+    //                 dataSource,
+    //                 // selectedRowKeys:[],
+    //                 pagination: Utils.pagination(data, current => {
+    //                     console.log("das")
     //                     _this.params.page = current;
-    //                     console.log(current)
-    //                     _this.requestList();
+    //                     _this.requestList()
+
     //                 })
     //             })
+
     //         }
-    //         // if (res.code === '0') {
-    //         //     let dataSource = res.result.item_list.map((item, index) => {
-    //         //         item.key = index;
-    //         //         return item
-    //         //     })
-    //         //     _this.setState({
-    //         //         dataSource,
-    //         //         // selectedRowKeys:[],
-    //         //         pagination: Utils.pagination(res, current => {
-    //         //             _this.params.page = current;
-    //         //             _this.requestList()
-    //         //         })
-    //         //     })
-    //         // }
     //     })
     // }
-    static requestList(_this, url, params) {
+    static requestList(_this, url, params, isMock) {
         var data = {
             params,
-
+            isMock
         }
         this.ajax({
             url,
             data,
-        }).then(data => {
-            if (data.code === 0) {
-                let dataSource = data.result.item_list.map((item, index) => {
+        }).then(res => {
+            if (res.code === 0) {
+                let dataSource = res.result.item_list.map((item, index) => {
                     item.key = index;
                     return item
                 })
                 _this.setState({
                     dataSource,
                     // selectedRowKeys:[],
-                    pagination: Utils.pagination(data, current => {
+                    pagination: Utils.pagination(res, current => {
                         _this.params.page = current;
                         _this.requestList()
                     })
@@ -89,7 +82,7 @@ export default class Axios {
             loading = document.getElementById("ajaxLoading");
             loading.style.display = "block"
         }
-        let baseApi = 'http://106.75.229.98:7300/mock/620713e7989bbf232e93deeb/mockapi'
+        let baseApi = 'https://mobile-ms.uat.homecreditcfc.cn/mock/6210640d0b5aa1002717e9ff/example_copy'
         // let baseApi = ''
         // if (options.data.isMock) {
         //     baseApi = "http://106.75.229.98:7300/mock/620713e7989bbf232e93deeb/mockapi";

@@ -3,7 +3,7 @@ import { Row, Col } from 'antd'
 import Header from './components/Headers'
 import Footer from './components/Footers'
 import NavLeft from './components/NavLeft'
-// import Home from './page/home'
+
 export default class Admin extends Component {
     render() {
         return (
@@ -22,6 +22,6 @@ export default class Admin extends Component {
             </Row>
         )
 
-    } mountNode
+    }
 
 }

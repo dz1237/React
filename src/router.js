@@ -18,11 +18,22 @@ import Reg from './page/form/reg'
 import Basic from './page/table/basicTable'
 import High from './page/table/high'
 import City from './page/city/index'
+import Order from './page/order/index'
+import Common from './common'
+import User from './page/user/index'
+import Detial from './page/order/detial'
+
+import bikeMap from './page/bikeMap/index'
 export default class IRouter extends Component {
     render() {
         return (
             <Router>
                 <App>
+                    <Route path="/common" render={() =>
+                        <Common>
+                            <Route path="/common/order/detail/:orderId" component={Detial} />
+                        </Common>
+                    } />
                     <Route path="/admin" render={() =>
                         <Admin>
                             <Switch>
@@ -41,11 +52,14 @@ export default class IRouter extends Component {
                                 <Route path="/admin/table/basic" component={Basic} />
                                 <Route path="/admin/table/high" component={High} />
                                 <Route path="/admin/city" component={City} />
+                                <Route path="/admin/order" component={Order} />
+                                <Route path="/admin/user" component={User} />
+                                <Route path="/admin/bikeMap" component={bikeMap} />
+
                                 <Route component={NoMatch} />
                             </Switch>
                         </Admin>
                     } />
-
 
                 </App>
             </Router >

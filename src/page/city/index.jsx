@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Card, Button, Form, Table, Select, Modal, message } from 'antd'
-import axios from '../../axios/index'
+import axios1 from '../../axios/index1'
 import Utils from '../../utils/utils'
 
 const { Option } = Select;
@@ -20,7 +20,7 @@ export default class City extends Component {
     //请求默认接口数据
     requestList = () => {
         let _this = this
-        axios.ajax({
+        axios1.ajax({
             url: '/open_city',
             data: {
                 params: {
@@ -53,7 +53,7 @@ export default class City extends Component {
         console.log(this.cityForm)
         let cityInfo = this.cityForm.cityForm.getFieldsValue();
         console.log(cityInfo);
-        axios.ajax({
+        axios1.ajax({
             url: '/city/open',
             data: {
                 params: cityInfo

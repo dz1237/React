@@ -37,10 +37,20 @@
   opacity: 0.1;
 }
 /****/
+li,
+ul {
+  list-style: none;
+}
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: block;
+  visibility: hidden;
+}
 .container .nav-left {
-  width: 15%;
   background-color: #002140;
   color: #fff;
+  width: 15%;
 }
 .container .main {
   background-color: #f1f3f5;
