@@ -24,6 +24,9 @@ import User from './page/user/index'
 import Detial from './page/order/detial'
 
 import bikeMap from './page/bikeMap/index'
+import Bar from './page/echarts/bar'
+import Line from './page/echarts/line'
+import Pie from './page/echarts/pie'
 export default class IRouter extends Component {
     render() {
         return (
@@ -55,6 +58,9 @@ export default class IRouter extends Component {
                                 <Route path="/admin/order" component={Order} />
                                 <Route path="/admin/user" component={User} />
                                 <Route path="/admin/bikeMap" component={bikeMap} />
+                                <Route path="/admin/echarts/bar" component={Bar} />
+                                <Route path="/admin/echarts/line" component={Line} />
+                                <Route path="/admin/echarts/pie" component={Pie} />
 
                                 <Route component={NoMatch} />
                             </Switch>
