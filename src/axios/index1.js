@@ -61,6 +61,7 @@ export default class Axios {
             }
         })
     }
+
     static jsonp(options) {
         return new Promise((resolve, reject) => {
             JsonP(options.url, {
@@ -82,13 +83,13 @@ export default class Axios {
             loading = document.getElementById("ajaxLoading");
             loading.style.display = "block"
         }
-        let baseApi = 'https://mobile-ms.uat.homecreditcfc.cn/mock/6210640d0b5aa1002717e9ff/example_copy'
-        // let baseApi = ''
-        // if (options.data.isMock) {
-        //     baseApi = "http://106.75.229.98:7300/mock/620713e7989bbf232e93deeb/mockapi";
-        // } else {
-        //     baseApi = "http://106.75.229.98:7300/mock/620713e7989bbf232e93deeb/mockapi";
-        // }
+        // let baseApi = 'https://mobile-ms.uat.homecreditcfc.cn/mock/6210640d0b5aa1002717e9ff/example_copy'
+        let baseApi = ''
+        if (options.data.isMock) {
+            baseApi = "https://mobile-ms.uat.homecreditcfc.cn/mock/6210640d0b5aa1002717e9ff/example_copy";
+        } else {
+            baseApi = "https://mobile-ms.uat.homecreditcfc.cn/mock/6210640d0b5aa1002717e9ff/example_copy";
+        }
         return new Promise((resolve, reject) => {
             axios({
                 url: options.url,
